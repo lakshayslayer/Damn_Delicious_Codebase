@@ -4,7 +4,8 @@ const Recipe = require('../models/Recipe');
 const categories = require("../../MongoDB Data/recipes.json");
 
 
-///////////////////////////////////////////  HomePage Controller  //////////////////////////////////////
+
+//* HomePage Controller //
 
 /**
  * GET /
@@ -47,7 +48,7 @@ exports.contact = async(req, res) => {
   }
 } 
 
-/////////////////////////////////////////// Success Email Controller  //////////////////////////////////////
+//*   Success Email Controller  //
 
 exports.success = async(req, res) => {
   try {
@@ -57,7 +58,7 @@ exports.success = async(req, res) => {
   }
 } 
 
-///////////////////////////////////////////  Explore Categories Controller  //////////////////////////////////////
+//*  Explore Categories Controller  //
 
 /**
  * GET /categories
@@ -73,7 +74,7 @@ exports.exploreCategories = async(req, res) => {
   }
 } 
 
-///////////////////////////////////////////  Explore Category By ID Controller  //////////////////////////////////////
+//*  Explore Category By ID Controller  //
 
 /**
  * GET /categories/:id
@@ -90,7 +91,7 @@ exports.exploreCategoriesById = async(req, res) => {
   }
 } 
 
-///////////////////////////////////////////  Explore Recipe Controller  //////////////////////////////////////
+//*  Explore Recipe Controller  //
 
 /**
  * GET /recipe/:id
@@ -107,7 +108,7 @@ exports.exploreRecipe = async(req, res) => {
 } 
 
 
-///////////////////////////////////////////  Search Recipe Controller  //////////////////////////////////////
+//*  Search Recipe Controller  //
 
 /**
  * POST /search
@@ -124,7 +125,7 @@ exports.searchRecipe = async(req, res) => {
   
 }
 
-///////////////////////////////////////////  Explore Latest Category Controller  //////////////////////////////////////
+//*  Explore Latest Category Controller  //
 
 /**
  * GET /explore-latest
@@ -141,7 +142,7 @@ exports.exploreLatest = async(req, res) => {
 } 
 
 
-///////////////////////////////////////////  Explore Random Category Controller  //////////////////////////////////////
+//*  Explore Random Category Controller  //
 
 /**
  * GET /explore-random
@@ -159,7 +160,7 @@ exports.exploreRandom = async(req, res) => {
 } 
 
 
-///////////////////////////////////////////  Submit Recipe Controller - POST  //////////////////////////////////////
+//*  Submit Recipe Controller - POST  //
 
 /**
  * GET /submit-recipe
@@ -172,7 +173,7 @@ exports.submitRecipe = async(req, res) => {
 }
 
 
-////////////////////////////////////////////  Submit Recipe Controller - POST   ////////////////////////////////////
+//*  Submit Recipe Controller - POST   //
 
 
 /**
@@ -208,6 +209,7 @@ exports.submitRecipeOnPost = async(req, res) => {
       ingredients: req.body.ingredients,
       category: req.body.category,
       image: newImageName
+      
     });
     
     await newRecipe.save();
@@ -222,44 +224,40 @@ exports.submitRecipeOnPost = async(req, res) => {
 }
 
 
-/////////////////////////////////////  More Features That Can Be Added To Project  //////////////////////////////////////
+//*  More Features That Can Be Added To Project  
+
+
+//* Delete Recipe
+// async function deleteRecipe(){
+//   try {
+//     await Recipe.deleteOne({ name: 'New Recipe Updated' });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// deleteRecipe();
+
+
+
+//* Update Recipe
+// async function updateRecipe(){
+//   try {
+//     const res = await Recipe.updateOne({ name: 'Crab cakes' }, { name: 'Dry cakes' });
+//     res.n; // Number of documents matched
+//     res.nModified; // Number of documents modified
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// updateRecipe();
+
+
+
+
+//! Dummy Data Example   //
 
 /*
-
-Delete Recipe
-async function deleteRecipe(){
-  try {
-    await Recipe.deleteOne({ name: 'New Recipe From Form' });
-  } catch (error) {
-    console.log(error);
-  }
-}
-deleteRecipe();
-
-*/
-
-/*
-
-Update Recipe
-async function updateRecipe(){
-  try {
-    const res = await Recipe.updateOne({ name: 'New Recipe' }, { name: 'New Recipe Updated' });
-    res.n; // Number of documents matched
-    res.nModified; // Number of documents modified
-  } catch (error) {
-    console.log(error);
-  }
-}
-updateRecipe();
-
-*/
-
-
-/////////////////////////////////////////////////  Dummy Data Example   ////////////////////////////////////////////
-
-/*
-
-// Used for inserting category data to mongoDB manually 
+? Used for inserting category data to mongoDB manually 
 
 async function insertDymmyCategoryData(){
   try {
@@ -290,7 +288,7 @@ async function insertDymmyCategoryData(){
       }
     ]);
   } catch (error) {
-    console.log('err', + error)
+    console.log('err ', + error)
   }
 }
 
@@ -301,40 +299,39 @@ insertDymmyCategoryData();
 
 // Used for inserting recipe data to mongoDB manually 
 
-/*
-async function insertDymmyRecipeData(){
-  try {
-    await Recipe.insertMany([
-      { 
-        "name": "Recipe Name Goes Here",
-        "description": `Recipe Description Goes Here`,
-        "email": "recipeemail@raddy.co.uk",
-        "ingredients": [
-          "1 level teaspoon baking powder",
-          "1 level teaspoon cayenne pepper",
-          "1 level teaspoon hot smoked paprika",
-        ],
-        "category": "American", 
-        "image": "southern-friend-chicken.jpg"
-      },
-      { 
-        "name": "Recipe Name Goes Here",
-        "description": `Recipe Description Goes Here`,
-        "email": "recipeemail@raddy.co.uk",
-        "ingredients": [
-          "1 level teaspoon baking powder",
-          "1 level teaspoon cayenne pepper",
-          "1 level teaspoon hot smoked paprika",
-        ],
-        "category": "American", 
-        "image": "southern-friend-chicken.jpg"
-      },
-    ]);
-  } catch (error) {
-    console.log('err', + error)
-  }
-}
 
-insertDymmyRecipeData();
+// async function insertDymmyRecipeData(){
+//   try {
+//     await Recipe.insertMany([
+//       { 
+//         "name": "Recipe Name Goes Here",
+//         "description": `Recipe Description Goes Here`,
+//         "email": "loky@raddy.co.uk",
+//         "ingredients": [
+//           "1 level teaspoon baking powder",
+//           "1 level teaspoon cayenne pepper",
+//           "1 level teaspoon hot smoked paprika",
+//         ],
+//         "category": "American", 
+//         "image": "southern-friend-chicken.jpg"
+//       },
+//       { 
+//         "name": "Recipe Name Goes Here",
+//         "description": `Recipe Description Goes Here`,
+//         "email": "loky@raddy.co.uk",
+//         "ingredients": [
+//           "1 level teaspoon baking powder",
+//           "1 level teaspoon cayenne pepper",
+//           "1 level teaspoon hot smoked paprika",
+//         ],
+//         "category": "American", 
+//         "image": "southern-friend-chicken.jpg"
+//       },
+//     ]);
+//   } catch (error) {
+//     console.log('err', + error)
+//   }
+// }
 
-*/
+// insertDymmyRecipeData();
+
